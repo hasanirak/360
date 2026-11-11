@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قالب مانشيت 360 - أفضل قالب إخباري ومجلة لبلوجر</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cairo for professional Arabic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e5edff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* تأثيرات الأشكال المتحركة في الخلفية (Blobs) */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* تأثير الزجاج (Glassmorphism) */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* نافذة المتصفح الوهمية */
+        .browser-mockup {
+            border-top: 2rem solid #0f172a;
+            position: relative;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        .browser-mockup::before {
+            content: '';
+            position: absolute;
+            top: -1.25rem;
+            left: 1rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: #ef4444; /* أحمر */
+            box-shadow: 1.5rem 0 0 #eab308, 3rem 0 0 #22c55e; /* أصفر وأخضر */
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50 relative selection:bg-brand-600 selection:text-white overflow-x-hidden">
+
+    <!-- Floating Glass Navbar -->
+    <div class="fixed w-full top-0 left-0 right-0 z-50 pt-4 px-4 sm:px-6 lg:px-8">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl shadow-lg shadow-slate-200/50 transition-all duration-300">
+            <div class="flex justify-between items-center h-16 px-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-xl shadow-md">
+                        M
+                    </div>
+                    <span class="font-bold text-2xl text-slate-900 tracking-tight">مانشيت <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">360</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#features" class="text-slate-600 hover:text-brand-600 font-bold transition">المميزات</a>
+                    <a href="#preview" class="text-slate-600 hover:text-brand-600 font-bold transition">نظرة عامة</a>
+                    <a href="#buy" class="text-slate-600 hover:text-brand-600 font-bold transition">الشراء</a>
+                </div>
+                <div>
+                    <a href="https://wa.me/9647762360338?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20شراء%20قالب%20مانشيت%20360" target="_blank" class="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white px-6 py-2 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-0.5">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        شراء الآن
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section (Modern Blobs) -->
+    <section class="relative pt-40 pb-20 lg:pt-52 lg:pb-32 min-h-screen flex items-center">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-20 left-10 md:left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob pointer-events-none"></div>
+        <div class="absolute top-20 right-10 md:right-32 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob animation-delay-2000 pointer-events-none"></div>
+        <div class="absolute -bottom-10 left-1/3 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob animation-delay-4000 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md text-brand-700 text-sm font-bold mb-6 border border-white shadow-sm">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span>
+                        </span>
+                        الإصدار 2.0 متاح الآن بخصائص جديدة
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-tight mb-6">
+                        ارتقِ بمدونتك مع <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">مانشيت 360</span>
+                    </h1>
+                    <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                        صُمم بعناية ليكون الأسرع والأكثر توافقاً مع محركات البحث. واجهة عصرية، تجاوب مثالي، وأماكن إعلانية تضاعف أرباحك بضغطة زر.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+                        <!-- WhatsApp Buy Button -->
+                        <a href="https://wa.me/9647762360338?text=مرحباً،%20أرغب%20في%20شراء%20قالب%20مانشيت%20360" target="_blank" 
+                           class="group bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-xl shadow-slate-900/20 hover:-translate-y-1 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                            <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                            أطلب نسختك الآن
+                        </a>
+                        
+                        <!-- Live Demo Button -->
+                        <a href="https://moives.gatebg.shop/" target="_blank" 
+                           class="group glass-panel hover:bg-white text-slate-800 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50">
+                            <div class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="far fa-eye"></i>
+                            </div>
+                            المعاينة الحية
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3D-like Mockup -->
+                <div class="relative lg:block mt-12 lg:mt-0 perspective-1000">
+                    <!-- Glow behind mockup -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-400 to-purple-400 rounded-3xl blur-3xl opacity-30 transform -rotate-6 scale-105 z-0"></div>
+                    
+                    <div class="browser-mockup bg-slate-900 z-10 transform transition-transform duration-500 hover:scale-[1.02]">
+                        <img src="https://placehold.co/800x600/ffffff/0f172a?text=Manchette+360\nModern+News+Theme" alt="معاينة قالب مانشيت 360" class="w-full h-auto object-cover border-none rounded-b-xl opacity-95 hover:opacity-100 transition-opacity">
+                    </div>
+                    
+                    <!-- Floating Glass Badge -->
+                    <div class="absolute -bottom-8 -right-4 glass-panel p-4 rounded-2xl shadow-2xl flex items-center gap-4 z-20 animate-bounce" style="animation-duration: 4s;">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl shadow-inner">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wider">الأداء</p>
+                            <p class="text-xl font-black text-slate-900">سرعة 99%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (Modern Cards) -->
+    <section id="features" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-brand-600 font-extrabold tracking-widest uppercase text-sm mb-3 block">مميزات القالب</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6">كل ما تحتاجه للنجاح، <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600">في مكان واحد</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">تصميم فائق التجاوب</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">تجربة مستخدم لا تشوبها شائبة على الهواتف المحمولة والأجهزة اللوحية، مع ترتيب ذكي للعناصر.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-teal-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">سيو (SEO) خارق</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">أكواد نظيفة، وسرعة تحميل صاروخية، مع دعم كامل لأكواد الميتا والسكيمّا لتصدر نتائج جوجل.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">مُجهز للإعلانات</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">مساحات إعلانية استراتيجية مدمجة لزيادة نسبة النقر (CTR) ومضاعفة أرباحك من أدسنس.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">تخصيص بدون أكواد</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">لوحة تحكم (التخطيط) قوية وسهلة تتيح لك تغيير الألوان، الخطوط، وأقسام الموقع بضغطة زر.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-800/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-900 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-slate-800/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">الوضع الليلي الأنيق</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">زر تبديل سلس للوضع المظلم (Dark Mode) يمنح زوارك راحة تامة أثناء تصفح الأخبار ليلاً.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="group glass-panel rounded-3xl p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-rose-500/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-400 to-red-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-rose-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-3">شريط الأخبار العاجلة</h4>
+                    <p class="text-slate-600 leading-relaxed font-medium">أدوات إخبارية متقدمة كشريط العاجل، مقالات ذات صلة، وأنظمة تعليقات متطورة متكاملة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (Dark Modern) -->
+    <section class="py-20 relative bg-slate-900 overflow-hidden">
+        <!-- Abstract dark background shapes -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-600 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-x-reverse divide-slate-800">
+                <div class="p-4">
+                    <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2">100%</div>
+                    <div class="text-brand-400 font-bold uppercase tracking-wider text-sm">متجاوب ومحسن</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2">99+</div>
+                    <div class="text-brand-400 font-bold uppercase tracking-wider text-sm">أداء وسرعة</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2">24/7</div>
+                    <div class="text-brand-400 font-bold uppercase tracking-wider text-sm">دعم فني</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2">1</div>
+                    <div class="text-brand-400 font-bold uppercase tracking-wider text-sm">نقرة للتركيب</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Buy Section (Premium Dark Card) -->
+    <section id="buy" class="py-24 relative z-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2.5rem] shadow-2xl shadow-slate-900/40 p-10 md:p-16 lg:p-20 border border-slate-700 relative overflow-hidden text-center">
+            <!-- Decorative inner glows -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-32 bg-brand-500/20 blur-[100px] rounded-full"></div>
+            
+            <div class="relative z-10">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center text-white text-4xl mx-auto mb-8 shadow-lg shadow-green-500/30 transform rotate-3">
+                    <i class="fas fa-gem"></i>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">جاهز لإطلاق موقعك الإخباري؟</h2>
+                <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-medium">
+                    احصل على القالب الآن عبر التواصل المباشر. ستحصل على ملف القالب، تحديثات مجانية، ودعم فني مخصص لضمان عمل موقعك بأفضل كفاءة.
+                </p>
+                
+                <div class="flex flex-col items-center justify-center gap-6">
+                    <a href="https://wa.me/9647762360338?text=السلام%20عليكم،%20أرغب%20في%20شراء%20قالب%20مانشيت%20360%20لبلوجر" target="_blank" 
+                       class="group w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all duration-300 flex items-center justify-center gap-4 shadow-xl shadow-green-500/40 hover:shadow-green-500/60 hover:-translate-y-2">
+                        <i class="fab fa-whatsapp text-3xl animate-pulse"></i>
+                        <span>شراء الآن عبر واتساب</span>
+                        <span dir="ltr" class="bg-black/20 px-3 py-1 rounded-lg text-lg ml-2 font-mono group-hover:bg-black/30 transition-colors">0096 477 6236 0338</span>
+                    </a>
+                    
+                    <div class="flex items-center gap-2 text-sm text-slate-400 font-semibold mt-2">
+                        <i class="fas fa-shield-alt text-brand-400"></i>
+                        دفع آمن واستلام فوري للقالب
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Minimal Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-900 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-brand-500 to-indigo-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                    M
+                </div>
+                <span class="font-bold text-xl text-white tracking-tight">مانشيت <span class="text-brand-500">360</span></span>
+            </div>
+            
+            <p class="text-sm font-medium">
+                &copy; 2024 قالب مانشيت 360. جميع الحقوق محفوظة.
+            </p>
+            
+            <div class="flex gap-6">
+                <a href="https://moives.gatebg.shop/" target="_blank" class="hover:text-white transition-colors font-medium"><i class="far fa-eye ml-1"></i> المعاينة</a>
+                <a href="https://wa.me/9647762360338" target="_blank" class="hover:text-green-400 transition-colors font-medium"><i class="fab fa-whatsapp ml-1"></i> الدعم الفني</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
